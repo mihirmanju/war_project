@@ -1,0 +1,24 @@
+{
+  "name": "war_project",
+  "version": "1.0.0",
+  "description": "WAR PROJECT Desciription",
+  "main": "myscripts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --mode=development myscripts.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihirmanju/war_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mihirmanju/war_project/issues"
+  },
+  "homepage": "https://github.com/mihirmanju/war_project#readme",
+  "devDependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}

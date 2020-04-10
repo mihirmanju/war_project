@@ -1,0 +1,25 @@
+{
+    "git.autofetch": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "workbench.startupEditor": "newUntitledFile",
+    "git.suggestSmartCommit": false,
+    "window.zoomLevel": -2,
+    "saveAndRun": {
+        "commands": [
+          {
+            "match": ".*",
+            "cmd": "npm start",
+            "useShortcut": false,
+            "silent": false
+          }
+        ]
+      }
+}
