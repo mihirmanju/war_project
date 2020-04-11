@@ -7,11 +7,9 @@
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 1000,
     "workbench.startupEditor": "newUntitledFile",
     "git.suggestSmartCommit": false,
-    "window.zoomLevel": -2,
+    "window.zoomLevel": 2,
     "saveAndRun": {
         "commands": [
           {

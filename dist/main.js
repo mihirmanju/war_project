@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./entity/Player.js":
+/*!**************************!*\
+  !*** ./entity/Player.js ***!
+  \**************************/
+/*! exports provided: Player */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"Player\", function() { return Player; });\nlet mdraw = __webpack_require__(/*! ../mihirdraw */ \"./mihirdraw.js\");\nlet keycodes = __webpack_require__(/*! ../keypress */ \"./keypress.js\");\nfunction Player(options) {\n  this.x = options.x || 10;\n  color: \"#44ee11\", (this.y = options.y || 10);\n  this.width = options.width || 40;\n  this.height = options.height || 50;\n  this.color = options.color || \"#000000\";\n  this.speed = options.speed || 5;\n  this.keycodes = options.keycodes;\n  this.direction = options.direction || \"right\";\n\n  let adam = this;\n  adam.nose = {\n    width: 15,\n    height: 15,\n    x: adam.x - 10,\n    y: adam.y,\n    draw: function () {\n      if (adam.direction == \"right\")\n        mdraw.draw_rect(adam.x + 50, adam.y, this.width, this.height);\n      else if (adam.direction == \"left\")\n        mdraw.draw_rect(adam.x - 15, adam.y, this.width, this.height);\n      else if (adam.direction == \"up\")\n        mdraw.draw_rect(adam.x, adam.y - 15, this.width, this.height);\n      else if (adam.direction == \"down\")\n        mdraw.draw_rect(adam.x, adam.y + 50, this.width, this.height);\n    },\n  };\n  this.draw = function () {\n    mdraw.change_fill_style(this.color);\n    mdraw.draw_rect(this.x, this.y, this.width, this.height);\n    this.nose.draw();\n  };\n}\n\n\n//# sourceURL=webpack:///./entity/Player.js?");
+
+/***/ }),
+
 /***/ "./keypress.js":
 /*!*********************!*\
   !*** ./keypress.js ***!
@@ -94,7 +106,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"input\", function() { return input; });\n\nvar keys = {};//new arraay variable for keystrokes//\n\nwindow.addEventListener(\"keydown\", function (e) {// listens to key down as a function which is defined within the curley brackets//\n  keys[e.keyCode] = true;\n  e.preventDefault();//prevents default function for arrows//\n});\n\nwindow.addEventListener(\"keyup\", function (e) {\n  delete keys[e.keyCode];//event listner for nome more leyboard pressdown\n});\n\n\nfunction input(player) { //creates new function named input for player variable//\n    if (37 in keys) {\n      player.x -= player.speed;//reduces x value by 5 as stated in speed//\n      player.direction = \"left\";//with left keypress//\n    }\n    if (39 in keys) {\n      player.x += player.speed;\n      player.direction = \"right\";\n    }\n    if (38 in keys) {\n      player.y -= player.speed;\n      player.direction = \"up\";\n    }\n    if (40 in keys) {\n      player.y += player.speed;\n      player.direction = \"down\";\n    }\n  }\n\n\n\n\n//# sourceURL=webpack:///./keypress.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"input\", function() { return input; });\n\n\nvar keys = {} //new object variable for keystrokes//\n\nwindow.addEventListener(\"keydown\", function (e) {\n  // listens to key down as a function which is defined within the curley brackets//\n  console.log('e.keyCode', e.keyCode);\n  console.log('keys', keys);  \n  keys[e.keyCode] = null;\n  console.log('keys new value', keys);\n\n  e.preventDefault(); //prevents default function for arrows//\n});\n\nwindow.addEventListener(\"keyup\", function (e) {\n  delete keys[e.keyCode]; //event listner for no more leyboard pressdown\n});\n\nfunction input(poop) {\n  //creates new function named input for poop variable//\n  if (poop.keycodes[0] in keys) {\n    poop.x -= poop.speed; \n    poop.direction = \"left\"; \n  }\n  if (poop.keycodes[1] in keys) {\n    poop.x += poop.speed;\n    poop.direction = \"right\";\n  }\n  if (poop.keycodes[2] in keys) {\n    poop.y -= poop.speed;\n    poop.direction = \"up\";\n  }\n  if (poop.keycodes[3] in keys) {\n    poop.y += poop.speed;\n    poop.direction = \"down\";\n  }\n}\n\n\n\n\n\n//# sourceURL=webpack:///./keypress.js?");
+
+/***/ }),
+
+/***/ "./mihirdraw.js":
+/*!**********************!*\
+  !*** ./mihirdraw.js ***!
+  \**********************/
+/*! exports provided: clear_screen, change_fill_style, draw_rect */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"clear_screen\", function() { return clear_screen; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"change_fill_style\", function() { return change_fill_style; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"draw_rect\", function() { return draw_rect; });\nvar canvas = document.getElementById(\"myCanvas\");\nvar ctx = canvas.getContext(\"2d\");\n\ncanvas.width = window.innerWidth;\ncanvas.height = window.innerHeight;\n\nfunction clear_screen(){\n    ctx.clearRect(0, 0, canvas.width, canvas.height);\n}\n\nfunction change_fill_style(color){\n    ctx.fillStyle = color;\n}\n\nfunction draw_rect(x, y, width, height){\n    ctx.fillRect(x, y, width, height);//Player value//\n}\n\n\n//# sourceURL=webpack:///./mihirdraw.js?");
 
 /***/ }),
 
@@ -105,7 +129,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var canvas = document.getElementById(\"myCanvas\");\nvar ctx = canvas.getContext(\"2d\");\nvar keypress = __webpack_require__(/*! ./keypress.js */ \"./keypress.js\");\n\ncanvas.width = window.innerWidth;\ncanvas.height = window.innerHeight;\n\n\nfunction Box(options) {\n  this.x = options.x || 10;  color: \"#44ee11\",\n  this.y = options.y || 10;\n  this.width = options.width || 40;\n  this.height = options.height || 50;\n  this.color = options.color || \"#000000\";\n  this.speed = options.speed || 5;\n  this.direction = options.direction || \"right\";\n}\n\nvar player = new Box({\n  X: 10,\n  y: 10,\n  width: 50,\n  height: 50,\n  color: \"red\",\n  speed: 5,\n})\n\n\n\n\n\n\nfunction drawBox(box) { //clears screen and redraws by calling drawbox//\n  ctx.fillStyle = box.color;//fills the box//\n  ctx.fillRect(box.x, box.y, box.width, box.height);//box value//\n}\n\nfunction update() {\n  keypress.input(player);\n}\n\nfunction draw() { //clears thd whole screen before each frame and calls drawbox function//\n  ctx.clearRect(0, 0, canvas.width, canvas.height);\n             //clears the whole canvas//\n  drawBox(player);// redwars the player in the next x,y value//\n}\n\nfunction loop() {   //this function does the looping and//\n                    // also loops other function in it//\n  update();         //this function updates after keypress//\n  draw();          //draw and redraw//\n  window.requestAnimationFrame(loop); //runs loop for refreshing the page//\n}\n\nloop(); // things get started reverse from here//\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n// var canvas = document.getElementById(\"myCanvas\");\n// var ctx = canvas.getContext(\"2d\");\n// function draw() {\n\n// }\n// setInterval(draw, 10);\n\n// ctx.strokeStyle = 'green';\n// ctx.fillStyle = \"#008000\";\n// ctx.fillRect(20, 20, 25, 20);\n// ctx.fillStyle = \"#FF0000\";\n// ctx.fillRect(50, 200, 25, 20);\n\n\n//# sourceURL=webpack:///./myscripts.js?");
+eval("let keypress = __webpack_require__(/*! ./keypress */ \"./keypress.js\");\nlet Player = __webpack_require__(/*! ./entity/Player */ \"./entity/Player.js\").Player;\nlet mdraw = __webpack_require__(/*! ./mihirdraw */ \"./mihirdraw.js\");\nconsole.log(Player);\n\nvar player1 = new Player({\n  x: 10,\n  y: 10,\n  width: 50,\n  height: 50,\n  color: \"red\",\n  speed: 5,\n  keycodes: [37, 39, 38, 40],\n});\n\nvar player2 = new Player({\n  x: 100,\n  y: 10,\n  width: 50,\n  height: 50,\n  color: \"blue\",\n  speed: 5,\n  keycodes: [65, 68, 87, 83],\n});\nfunction update() {\n  keypress.input(player1);\n  keypress.input(player2);\n}\n\nfunction draw() {\n  //clears thd whole screen before each frame and calls drawPlayer function//\n  //clears the whole canvas//\n  mdraw.clear_screen();\n  player1.draw(); // redwars the player1 in the next x,y value//\n  player2.draw(); // redwars the player1 in the next x,y value//\n}\n\nfunction loop() {\n  //this function does the looping and//\n  // also loops other function in it//\n  update(); //this function updates after keypress//\n  draw(); //draw and redraw//\n  window.requestAnimationFrame(loop); //runs loop for refreshing the page//\n}\n\nloop(); // things get started reverse from here//\n\n// var canvas = document.getElementById(\"myCanvas\");\n// var ctx = canvas.getContext(\"2d\");\n// function draw() {\n\n// }\n// setInterval(draw, 10);\n\n// ctx.strokeStyle = 'green';\n// ctx.fillStyle = \"#008000\";\n// ctx.fillRect(20, 20, 25, 20);\n// ctx.fillStyle = \"#FF0000\";\n// ctx.fillRect(50, 200, 25, 20);\n// player3 1,2,3,4.\n\n\n//# sourceURL=webpack:///./myscripts.js?");
 
 /***/ })
 
