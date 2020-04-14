@@ -9,7 +9,7 @@
     },
     "workbench.startupEditor": "newUntitledFile",
     "git.suggestSmartCommit": false,
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "saveAndRun": {
         "commands": [
           {

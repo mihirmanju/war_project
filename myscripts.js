@@ -1,5 +1,6 @@
 let keypress = require("./keypress");
 let Player = require("./entity/Player").Player;
+let bullet = require("./entity/bullet").bullet;
 let mdraw = require("./mihirdraw");
 console.log(Player);
 
@@ -9,7 +10,7 @@ var player1 = new Player({
   width: 50,
   height: 50,
   color: "red",
-  speed: 5,
+  speed: 50,
   keycodes: [37, 39, 38, 40],
 });
 
@@ -17,11 +18,13 @@ var player2 = new Player({
   x: 100,
   y: 10,
   width: 50,
-  height: 50,
-  color: "blue",
+
   speed: 5,
   keycodes: [65, 68, 87, 83],
 });
+
+const bullet1 = new bullet();
+
 function update() {
   keypress.input(player1);
   keypress.input(player2);
@@ -33,6 +36,7 @@ function draw() {
   mdraw.clear_screen();
   player1.draw(); // redwars the player1 in the next x,y value//
   player2.draw(); // redwars the player1 in the next x,y value//
+  bullet1.draw();
 }
 
 function loop() {
@@ -44,17 +48,3 @@ function loop() {
 }
 
 loop(); // things get started reverse from here//
-
-// var canvas = document.getElementById("myCanvas");
-// var ctx = canvas.getContext("2d");
-// function draw() {
-
-// }
-// setInterval(draw, 10);
-
-// ctx.strokeStyle = 'green';
-// ctx.fillStyle = "#008000";
-// ctx.fillRect(20, 20, 25, 20);
-// ctx.fillStyle = "#FF0000";
-// ctx.fillRect(50, 200, 25, 20);
-// player3 1,2,3,4.
